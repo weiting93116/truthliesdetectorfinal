@@ -1,15 +1,124 @@
-/* 組員頁專屬 */
+/* 團隊成員頁面專用樣式 */
 
-.member {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
+.container {
+    max-width: 1400px;
+    margin: 120px auto 100px;
+    padding: 0 40px;
 }
 
-.member img {
-    width: 150px;
-    border-radius: 16px;
-    box-shadow:
-        0 12px 28px rgba(0,0,0,0.18),
-        inset 0 0 0.5px rgba(255,255,255,0.5);
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.member-card {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(158, 183, 158, 0.1);
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-green);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(158, 183, 158, 0.1);
+}
+
+/* 頂部區域：頭像與基本資料 */
+.member-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid rgba(158, 183, 158, 0.2);
+    padding-bottom: 20px;
+}
+
+.avatar-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 2px solid var(--primary-green);
+    box-shadow: 0 0 15px rgba(158, 183, 158, 0.3);
+    background-color: #000;
+}
+
+.info-titles h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.student-id {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: var(--primary-green);
+    letter-spacing: 2px;
+}
+
+/* 職責標籤 */
+.role-tag {
+    display: inline-block;
+    padding: 5px 15px;
+    background: rgba(158, 183, 158, 0.1);
+    border-left: 3px solid var(--primary-green);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-green);
+}
+
+/* 內容區塊 */
+.content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.content-label {
+    font-size: 0.9rem;
+    color: var(--primary-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #eee;
+    line-height: 1.7;
+}
+
+.experience-box {
+    margin-top: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    border: 1px dashed rgba(158, 183, 158, 0.2);
+}
+
+.experience-text {
+    font-size: 1.05rem;
+    color: #bbb;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* 響應式優化 */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 0 20px;
+    }
+    .avatar-img {
+        width: 65px;
+        height: 65px;
+    }
 }

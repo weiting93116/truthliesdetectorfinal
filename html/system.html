@@ -1,61 +1,84 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>系統展示｜真偽探測站</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/system.css">
-
+    <title>系統架構｜真偽探測站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/system.css">
 </head>
 <body>
+    <canvas id="particle-canvas"></canvas>
+    <header>
+        <nav>
+            <a href="../index.html" class="brand">
+                <img src="../images/logo.png" alt="Logo" class="brand-logo">
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">首頁</a>
+                <a href="system.html" class="active">系統架構</a>
+                <a href="team.html">團隊成員</a>
+            </div>
+        </nav>
+    </header>
 
-<header>
-    <h1>系統畫面展示與說明</h1>
-    <p>System Demonstration</p>
-</header>
+    <main class="container">
+        <!-- 核心指標 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-num">AI</span>
+                <h2>模型分析核心指標</h2>
+                <div class="h-line"></div>
+            </div>
+            <div class="metrics-grid">
+                <div class="glass-container metric-box">
+                    <div class="box-decor"></div>
+                    <h4>廣告業配偵測</h4>
+                    <p>利用特徵工程識別文本中潛藏的行銷連結與商業推廣意圖。</p>
+                </div>
+                <div class="glass-container metric-box">
+                    <div class="box-decor"></div>
+                    <h4>誇張用語分析</h4>
+                    <p>比對標題黨常用詞庫，量化訊息內容與事實的偏離程度。</p>
+                </div>
+                <div class="glass-container metric-box">
+                    <div class="box-decor"></div>
+                    <h4>情緒化分析</h4>
+                    <p>偵測誘導讀者產生憤怒或恐懼等負面情緒的釣魚字彙。</p>
+                </div>
+                <div class="glass-container metric-box">
+                    <div class="box-decor"></div>
+                    <h4>語法字詞密度</h4>
+                    <p>分析文本生成邏輯，辨別內容是否由機器大量自動生成。</p>
+                </div>
+            </div>
+        </section>
 
-<nav>
-    <a href="../index.html">專題簡介</a>
-    <a href="../html/team.html">組員資料</a>
-    <a href="../html/system.html">系統展示</a>
-</nav>
-
-<div class="container">
-
-<section>
-    <h2>01｜資訊輸入與即時查證</h2>
-    <p>
-        使用者可將可疑訊息直接輸入或貼上至系統中，
-        系統即會啟動初步分析流程，降低查證所需時間與操作複雜度。
-    </p>
-    <img src="images/demo1.png" class="system-img" alt="資訊輸入畫面">
-</section>
-
-<section>
-    <h2>02｜AI 可信度分析結果</h2>
-    <p>
-        系統透過多項可信度指標進行分析，
-        並整合為直觀的可信度評分與文字說明，
-        協助使用者快速掌握資訊風險程度。
-    </p>
-    <img src="images/demo2.png" class="system-img" alt="可信度分析畫面">
-</section>
-
-<section>
-    <h2>03｜視覺化呈現與補充資訊</h2>
-    <p>
-        分析結果以圖像化方式呈現，
-        並提供相關資料來源與補充說明，
-        強化使用者判斷依據與理解深度。
-    </p>
-    <img src="images/demo3.png" class="system-img" alt="視覺化結果畫面">
-</section>
-
-</div>
-
-<footer>
-    © 2025 真偽探測站｜系統展示
-</footer>
-
+        <!-- 技術架構 -->
+        <section class="section">
+            <div class="section-header">
+                <span class="section-num">STACK</span>
+                <h2>技術架構對照表</h2>
+                <div class="h-line"></div>
+            </div>
+            <div class="glass-container">
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>層級</th>
+                            <th>開發技術與工具</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>介面開發</td><td>React, Tailwind CSS, Line Messaging API</td></tr>
+                        <tr><td>後端服務</td><td>FastAPI (Python), Node.js, Web Scraping</td></tr>
+                        <tr><td>人工智慧</td><td>BERT Model, NLP 自然語言處理, TensorFlow</td></tr>
+                        <tr><td>資料儲存</td><td>Firebase Realtime DB, Google Search API</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script src="../js/effects.js"></script>
 </body>
 </html>

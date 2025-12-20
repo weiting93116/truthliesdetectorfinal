@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實際展示｜真偽探測站</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/demo.css">
+</head>
+<body class="light-theme">
+
+    <canvas id="particle-canvas"></canvas>
+
+    <header>
+        <nav>
+            <a href="index.html" class="brand"><img src="images/logo.png" class="brand-logo"></a>
+            <div class="nav-links">
+                <a href="index.html" class="active">核心首頁</a>
+                <a href="html/system.html">系統架構</a>
+                <a href="html/team.html">團隊成員</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="section">
+                <div class="tech-label reveal">SYSTEM INTERFACE</div>
+                <h2 class="reveal">系統實際展示</h2>
+                <p class="subtitle reveal">透過直覺化的視覺設計，將複雜的 AI 判斷邏輯轉化為大眾易讀的資訊標記。</p>
+
+                <!-- UI 展示網格 -->
+                <div class="demo-grid">
+                    
+                    <!-- 核心首頁：對應文件排行榜/熱門 -->
+                    <div class="demo-item reveal">
+                        <div class="ui-mockup">
+                            <img src="../images/ui-home.jpg" alt="首頁介面" onerror="this.src='https://via.placeholder.com/600x400/9EB79E/FFFFFF?text=Home+Interface'">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="demo-info">
+                            <span class="info-tag">CORE</span>
+                            <h3>智慧導航首頁</h3>
+                            <p>整合新聞排行榜與熱門趨勢，根據使用者偏好動態推送具備高可信度的新聞內容。</p>
+                        </div>
+                    </div>
+
+                    <!-- AI 辨識：對應文件快速查詢/可信度標章 -->
+                    <div class="demo-item reveal">
+                        <div class="ui-mockup">
+                            <img src="../images/ui-ai.jpg" alt="AI 辨識小助手" onerror="this.src='https://via.placeholder.com/600x400/86a386/FFFFFF?text=AI+Assistant'">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="demo-info">
+                            <span class="info-tag">AI ENGINE</span>
+                            <h3>AI 辨識小助手</h3>
+                            <p>輸入連結或標題後，系統即時返回「極高/高/中/低/極低」五段可信度分值與解釋報告。</p>
+                        </div>
+                    </div>
+
+                    <!-- 文章內頁：對應文件用戶互動/專家評論 -->
+                    <div class="demo-item reveal">
+                        <div class="ui-mockup">
+                            <img src="../images/ui-article.jpg" alt="文章內頁" onerror="this.src='https://via.placeholder.com/600x400/daffde/2d3a32?text=Article+View'">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="demo-info">
+                            <span class="info-tag">INTERACTIVE</span>
+                            <h3>深度互動分析頁</h3>
+                            <p>除了視覺化標章，更提供專家即時評論功能，強化資訊深度與社會信任感。</p>
+                        </div>
+                    </div>
+
+                    <!-- 懸浮球：對應文件常駐懸浮圖示 -->
+                    <div class="demo-item reveal">
+                        <div class="ui-mockup">
+                            <img src="../images/ui-floating.jpg" alt="常駐懸浮工具" onerror="this.src='https://via.placeholder.com/600x400/f0f4f0/9EB79E?text=Floating+Tool'">
+                            <div class="scan-line"></div>
+                        </div>
+                        <div class="demo-info">
+                            <span class="info-tag">UTILITY</span>
+                            <h3>常駐懸浮工具</h3>
+                            <p>支援 Overlay 權限，在任何應用程式上方都能一鍵喚醒 AI 文字檢測與截圖查證。</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 ｜A10 真偽探測站</p>
+    </footer>
+
+    <script src="../js/effects.js"></script>
+</body>
+</html>

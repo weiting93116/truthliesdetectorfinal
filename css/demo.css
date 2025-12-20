@@ -1,0 +1,170 @@
+/* VERI-STATION - 實際展示頁面專業科技感優化 */
+
+/* ===== 全域背景與標記 ===== */
+#particle-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4f1 100%);
+}
+
+.tech-label {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--green-main);
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+/* ===== 展示網格系統 ===== */
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    perspective: 2000px; /* 為網格整體提供透視感 */
+}
+
+/* ===== 展示卡片主體 (3D 互動) ===== */
+.demo-item {
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-style: preserve-3d;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+}
+
+.demo-item:hover {
+    transform: rotateY(-8deg) rotateX(5deg) translateY(-15px);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 30px 60px rgba(158, 183, 158, 0.2);
+    border-color: var(--green-main);
+}
+
+/* UI Mockup 容器 */
+.ui-mockup {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: #1a1a1a;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+    transform: translateZ(30px); /* 讓圖片在 3D 空間中浮起 */
+}
+
+.ui-mockup img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: 0.5s;
+}
+
+.demo-item:hover .ui-mockup img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* 動態掃描線 */
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to bottom, transparent, var(--green-main), transparent);
+    box-shadow: 0 0 15px var(--green-glow);
+    z-index: 5;
+    animation: scanAnimation 3s infinite ease-in-out;
+    pointer-events: none;
+}
+
+/* ===== 資訊內容排版 ===== */
+.demo-info {
+    text-align: left;
+    padding: 10px 15px;
+    transform: translateZ(50px); /* 讓文字浮得比圖片更高 */
+}
+
+.info-tag {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    background: var(--green-light);
+    color: var(--green-main);
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.demo-info h3 {
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.demo-info p {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* ===== 科技感裝飾細節 ===== */
+.demo-item::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 10px;
+    height: 10px;
+    background: var(--green-main);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green-glow);
+    animation: pulseGlow 2s infinite;
+}
+
+/* ===== 動畫定義 ===== */
+@keyframes scanAnimation {
+    0% { top: -5%; }
+    50% { top: 105%; }
+    100% { top: -5%; }
+}
+
+@keyframes pulseGlow {
+    0%, 100% { opacity: 0.4; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ===== 響應式優化 ===== */
+@media (max-width: 992px) {
+    .demo-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .demo-item {
+        padding: 20px;
+    }
+    .demo-info h3 {
+        font-size: 1.4rem;
+    }
+}

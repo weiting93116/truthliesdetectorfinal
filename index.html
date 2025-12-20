@@ -1,66 +1,122 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>專題簡介｜真偽探測站</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>真偽探測站｜首頁</title>
+    <!-- 引入 Orbitron 字體增加科技感 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- 引入外部 CSS 檔案 -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
-
 </head>
 <body>
+    <canvas id="particle-canvas"></canvas>
 
-<header>
-    <h1>真偽探測站</h1>
-    <p>真的假的，攤開看</p>
-</header>
+    <header>
+        <nav>
+            <a href="index.html" class="brand">
+                <img src="images/logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://placehold.co/150x50/000000/9eb79e?text=LOGO'">
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">首頁</a>
+                <a href="html/system.html">系統架構</a>
+                <a href="html/demo.html">操作介面</a>
+                <a href="html/team.html">團隊成員</a>
+            </div>
+        </nav>
+    </header>
 
-<nav>
-    <a href="index.htm">專題簡介</a>
-    <a href="../A10/html/team.html">組員資料</a>
-    <a href="../A10/html/system.html">系統展示</a>
-</nav>
+    <main>
+        <!-- Hero 區塊 -->
+        <section class="hero">
+            <h1 class="glow-text">真偽探測站</h1>
+            <div class="slogan-container">
+                <span class="slogan-line"></span>
+                <p class="slogan">真的假的 攤開看</p>
+                <span class="slogan-line"></span>
+            </div>
+            <p class="subtitle">整合AI可信度辨識的 訊息判別系統</p>
+            <p class="subtitle">讓你用最快的速度，獲得最可靠的答案</p>
+        </section>
 
-<div class="container">
+        <div class="container">
+            <!-- 專題動機 -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-num">01</span>
+                    <h2>專題動機與背景</h2>
+                    <div class="h-line"></div>
+                </div>
+                <div class="glass-container feature-grid">
+                    <div class="card-glow">
+                        <h3>痛點分析</h3>
+                        <ul>
+                            <li>假消息、假新聞透過社群平台快速擴散，影響社會信任。</li>
+                            <li>官方查核資料分散，大眾缺乏即時且統一的判讀工具。</li>
+                            <li>數位詐騙手法翻新，年輕及高齡族群受害風險增加。</li>
+                        </ul>
+                    </div>
+                    <div class="card-glow">
+                        <h3>核心目標</h3>
+                        <p>提供即時、準確、易操作的資訊可信度分析服務。</p>
+                    </div>
+                </div>
+            </section>
 
-<section>
-    <h2>一、專題緣起</h2>
-    <p>
-        在資訊快速流動的數位時代，大眾透過社群媒體與即時通訊平台接收大量訊息，
-        然而錯誤資訊與假訊息亦隨之快速擴散，影響社會信任與判讀品質。
-        本專題希望透過 AI 技術，協助使用者快速判斷資訊可信度。
-    </p>
-</section>
+            <!-- 預期效益 -->
+            <section class="section">
+                <div class="section-header">
+                    <span class="section-num">02</span>
+                    <h2>預期效益</h2>
+                    <div class="h-line"></div>
+                </div>
+                <div class="benefit-grid">
+                
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">01. LITERACY</div>
+                        <h4>提升判讀力</h4>
+                        <p>提供AI推薦與多源比對，幫助使用者獲得客觀結果，培養理性判斷。</p>
+                    </div>
+                  
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">02. CONTROL</div>
+                        <h4>降低污染傳播</h4>
+                        <p>自動定時更新辨別內容，防止假新聞發酵，維護資訊生態。</p>
+                    </div>
+                    
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">03. PLATFORM</div>
+                        <h4>客觀資訊平台</h4>
+                        <p>整合多來源查證，提升資訊透明度，建立數位信任。</p>
+                    </div>
+                  
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">04. SHARING</div>
+                        <h4>促進知識共享</h4>
+                        <p>導入教育與媒體，強化假訊息防治，成為專業查證實用工具。</p>
+                    </div>
+               
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">05. INTUITIVE</div>
+                        <h4>行為生活化</h4>
+                        <p>透過一鍵查詢與懸浮圖示，縮短查證時間，讓查證行為融入日常。</p>
+                    </div>
+                
+                    <div class="glass-container benefit-card">
+                        <div class="benefit-tag">06. GREEN</div>
+                        <h4>綠色資訊流通</h4>
+                        <p>以AI自動化技術取代實體資源耗用，優化運算能耗，實踐低碳服務。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<section>
-    <h2>二、專題特色</h2>
-    <ul>
-        <li>整合多項可信度指標之 AI 分析模型</li>
-        <li>操作流程簡單，降低查證門檻</li>
-        <li>分析結果以視覺化方式呈現，提升理解效率</li>
-    </ul>
-</section>
+    <footer>
+        <p class="copyright">© 2025 真偽探測站｜ A10</p>
+    </footer>
 
-<section>
-    <h2>三、專題貢獻</h2>
-
-    <h3>（一）對學術界</h3>
-    <p>
-        提供 AI 輔助假訊息判讀之實務應用案例，
-        作為資訊管理與數位倫理相關研究之參考。
-    </p>
-
-    <h3>（二）對實務界</h3>
-    <p>
-        協助一般使用者降低查證難度與時間成本，
-        提升媒體識讀能力，促進健康資訊環境。
-    </p>
-</section>
-
-</div>
-
-<footer>
-    © 2025 真偽探測站｜專題成果網站
-</footer>
-
+    <script src="js/effects.js"></script>
 </body>
 </html>

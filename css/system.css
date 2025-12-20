@@ -1,10 +1,32 @@
-/* 系統展示頁專屬 */
-
-.system-img {
-    width: 100%;
-    margin-top: 22px;
-    border-radius: 18px;
-    box-shadow:
-        0 14px 36px rgba(0,0,0,0.2),
-        inset 0 0 0.6px rgba(255,255,255,0.45);
+/* 系統頁專屬樣式 */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
 }
+
+.metric-box { position: relative; overflow: hidden; padding: 30px; }
+.box-decor {
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--primary-green);
+}
+
+.metric-box h4 { color: var(--secondary-green); margin-bottom: 12px; }
+.metric-box p { font-size: 0.9rem; color: #888; }
+
+.tech-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tech-table th, .tech-table td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.tech-table th { color: var(--primary-green); font-family: 'Orbitron', sans-serif; }
+.tech-table tr:last-child td { border: none; }
+.tech-table tr:hover td { color: #fff; background: rgba(158, 183, 158, 0.05); }
