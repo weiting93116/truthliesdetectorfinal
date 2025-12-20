@@ -2,83 +2,159 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>系統架構｜真偽探測站</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- 引入基礎全站樣式 -->
     <link rel="stylesheet" href="../css/base.css">
+    <!-- 引入系統頁面專屬樣式 -->
     <link rel="stylesheet" href="../css/system.css">
 </head>
 <body>
     <canvas id="particle-canvas"></canvas>
+    
     <header>
         <nav>
             <a href="../index.html" class="brand">
-                <img src="../images/logo.png" alt="Logo" class="brand-logo">
+                <img src="../images/logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://placehold.co/150x50/000000/9eb79e?text=LOGO'">
             </a>
             <div class="nav-links">
                 <a href="../index.html">首頁</a>
-                <a href="system.html" class="active">系統架構</a>
-                <a href="team.html">團隊成員</a>
+                <a href="/html/system.html" class="active">系統架構</a>
+                <a href="/html/demo.html">操作介面</a>
+                <a href="/html/team.html">團隊成員</a>
             </div>
         </nav>
     </header>
 
     <main class="container">
-        <!-- 核心指標 -->
+        <!-- 頂部標題區 -->
+        <div class="page-hero">
+            <h1>SYSTEM ARCHITECTURE</h1>
+            <p>技術核心與系統架構設計</p>
+        </div>
+
+        <!-- AI 模型數據分析指標 -->
         <section class="section">
             <div class="section-header">
-                <span class="section-num">AI</span>
-                <h2>模型分析核心指標</h2>
+                <span class="section-num">01</span>
+                <h2>AI 模型數據分析指標</h2>
                 <div class="h-line"></div>
             </div>
-            <div class="metrics-grid">
-                <div class="glass-container metric-box">
-                    <div class="box-decor"></div>
-                    <h4>廣告業配偵測</h4>
-                    <p>利用特徵工程識別文本中潛藏的行銷連結與商業推廣意圖。</p>
+            
+            <!-- 3D 土星環裝飾區 -->
+            <div class="carousel-section">
+                <div class="carousel-stage">
+                    <div class="carousel-container">
+                        <div class="metric-bubble bubble-1">
+                            <div class="bubble-inner"><h4>廣告業配</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-2">
+                            <div class="bubble-inner"><h4>誇張詞語</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-3">
+                            <div class="bubble-inner"><h4>情緒釣魚</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-4">
+                            <div class="bubble-inner"><h4>引用證據</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-5">
+                            <div class="bubble-inner"><h4>標題與內文<br>一致性</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-6">
+                            <div class="bubble-inner"><h4>文章來源身分</h4></div>
+                        </div>
+                        <div class="metric-bubble bubble-7">
+                            <div class="bubble-inner"><h4>不明或<br>新註冊網站網域</h4></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="glass-container metric-box">
-                    <div class="box-decor"></div>
-                    <h4>誇張用語分析</h4>
-                    <p>比對標題黨常用詞庫，量化訊息內容與事實的偏離程度。</p>
-                </div>
-                <div class="glass-container metric-box">
-                    <div class="box-decor"></div>
-                    <h4>情緒化分析</h4>
-                    <p>偵測誘導讀者產生憤怒或恐懼等負面情緒的釣魚字彙。</p>
-                </div>
-                <div class="glass-container metric-box">
-                    <div class="box-decor"></div>
-                    <h4>語法字詞密度</h4>
-                    <p>分析文本生成邏輯，辨別內容是否由機器大量自動生成。</p>
+            </div>
+
+            <!-- 指標詳細內容 -->
+            <div class="metrics-table-container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h4>廣告業配</h4>
+                        <p>商業動機促使內容偏頗或選擇性呈現以促成交，而業配文可能隱匿來源偏見。</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>誇張詞語</h4>
+                        <p>過度誇張詞語通常用來吸引注意或操縱情緒，往往缺乏冷靜數據支撐。</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>情緒釣魚字詞密度</h4>
+                        <p>情緒化語言降低受眾批判性思考，容易擴散不實資訊，常見於謠言與錯誤信息擴散路徑上。</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>引用證據</h4>
+                        <p>沒有原始數據或引用來源，或錯誤引用／斷章引用學術研究，容易被誤導或偽造。</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>標題與內文一致性</h4>
+                        <p>標題黨常用以吸引點擊，可能誤導讀者對內文的期待，或用斷章取義的標題扭曲事實。</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>文章來源身分</h4>
+                        <p>缺乏具名的消息來源（如單位或專家），無法查證，常見於謠言或誤導性內容</p>
+                    </div>
+                    <div class="metric-card">
+                        <h4>不明或新註冊網站網域</h4>
+                        <p>網域異常（.xyz、.top）、近期註冊或查無營運背景，可信度低、可能為假訊息站點</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 技術架構 -->
+        <!-- 運作流程 (四大模組架構) -->
         <section class="section">
             <div class="section-header">
-                <span class="section-num">STACK</span>
-                <h2>技術架構對照表</h2>
+                <span class="section-num">02</span>
+                <h2>系統架構運作流程</h2>
                 <div class="h-line"></div>
             </div>
-            <div class="glass-container">
-                <table class="tech-table">
-                    <thead>
-                        <tr>
-                            <th>層級</th>
-                            <th>開發技術與工具</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>介面開發</td><td>React, Tailwind CSS, Line Messaging API</td></tr>
-                        <tr><td>後端服務</td><td>FastAPI (Python), Node.js, Web Scraping</td></tr>
-                        <tr><td>人工智慧</td><td>BERT Model, NLP 自然語言處理, TensorFlow</td></tr>
-                        <tr><td>資料儲存</td><td>Firebase Realtime DB, Google Search API</td></tr>
-                    </tbody>
-                </table>
+            <div class="flow-container">
+                <div class="flow-step glass-container">
+                    <div class="step-icon"><span class="module-num">01</span></div>
+                    <div class="step-content">
+                        <h4>帳號與個人化模組</h4>
+                        <p>包含收藏、設定與推薦內容。</p>
+                    </div>
+                </div>
+                <div class="flow-connector"></div>
+                <div class="flow-step glass-container">
+                    <div class="step-icon"><span class="module-num">02</span></div>
+                    <div class="step-content">
+                        <h4>使用者查詢介面模組</h4>
+                        <p>貼上文字後即可獲得可信度與建議。</p>
+                    </div>
+                </div>
+                <div class="flow-connector"></div>
+                <div class="flow-step glass-container">
+                    <div class="step-icon"><span class="module-num">03</span></div>
+                    <div class="step-content">
+                        <h4>AI 判別與比對模組</h4>
+                        <p>系統的核心模組，透過爬蟲與NLP分析語意與關鍵字並透過生成式AI補充，最終產生可信度以及建議。</p>
+                    </div>
+                </div>
+                <div class="flow-connector"></div>
+                <div class="flow-step glass-container">
+                    <div class="step-icon"><span class="module-num">04</span></div>
+                    <div class="step-content">
+                        <h4>視覺化呈現模組</h4>
+                        <p>可信度標籤，AI趨勢分析以及類型標籤等。</p>
+                    </div>
+                </div>
             </div>
         </section>
+
+       
     </main>
+
     <script src="../js/effects.js"></script>
+    
+    <footer>
+        <p class="copyright">© 2025 真偽探測站｜ A10</p>
+    </footer>
 </body>
 </html>
