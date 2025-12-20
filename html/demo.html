@@ -3,97 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>實際展示｜真偽探測站</title>
+    <title>操作介面｜真偽探測站</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/demo.css">
 </head>
-<body class="light-theme">
+<body>
 
     <canvas id="particle-canvas"></canvas>
 
     <header>
         <nav>
-            <a href="index.html" class="brand"><img src="images/logo.png" class="brand-logo"></a>
+            <a href="../index.html" class="brand">
+                <img src="../images/logo.png" alt="Logo" class="brand-logo">
+            </a>
             <div class="nav-links">
-                <a href="index.html" class="active">核心首頁</a>
-                <a href="html/system.html">系統架構</a>
-                <a href="html/team.html">團隊成員</a>
+                <a href="../index.html">首頁</a>
+                <a href="system.html">系統架構</a>
+                <a href="demo.html" class="active">操作介面</a>
+                <a href="team.html">團隊成員</a>
             </div>
         </nav>
     </header>
 
-    <main>
-        <div class="container">
-            <section class="section">
-                <div class="tech-label reveal">SYSTEM INTERFACE</div>
-                <h2 class="reveal">系統實際展示</h2>
-                <p class="subtitle reveal">透過直覺化的視覺設計，將複雜的 AI 判斷邏輯轉化為大眾易讀的資訊標記。</p>
+    <main class="demo-container">
 
-                <!-- UI 展示網格 -->
-                <div class="demo-grid">
-                    
-                    <!-- 核心首頁：對應文件排行榜/熱門 -->
-                    <div class="demo-item reveal">
-                        <div class="ui-mockup">
-                            <img src="../images/ui-home.jpg" alt="首頁介面" onerror="this.src='https://via.placeholder.com/600x400/9EB79E/FFFFFF?text=Home+Interface'">
-                            <div class="scan-line"></div>
-                        </div>
-                        <div class="demo-info">
-                            <span class="info-tag">CORE</span>
-                            <h3>智慧導航首頁</h3>
-                            <p>整合新聞排行榜與熱門趨勢，根據使用者偏好動態推送具備高可信度的新聞內容。</p>
-                        </div>
-                    </div>
+        <!-- 模組 01: 帳戶管理與首頁導覽 -->
+        <section class="demo-section">
+            <div class="demo-text">
+                <span class="section-tag">MODULE 01 / AUTH & HOME</span>
+                <h2>帳戶管理與首頁</h2>
+                <p>提供流暢的登入與註冊介面。<br>首頁匯集了最新與熱門的訊息動態，讓用戶在進入 App 時能迅速瀏覽當前備受關注的議題資訊。</p>
+            </div>
 
-                    <!-- AI 辨識：對應文件快速查詢/可信度標章 -->
-                    <div class="demo-item reveal">
-                        <div class="ui-mockup">
-                            <img src="../images/ui-ai.jpg" alt="AI 辨識小助手" onerror="this.src='https://via.placeholder.com/600x400/86a386/FFFFFF?text=AI+Assistant'">
-                            <div class="scan-line"></div>
-                        </div>
-                        <div class="demo-info">
-                            <span class="info-tag">AI ENGINE</span>
-                            <h3>AI 辨識小助手</h3>
-                            <p>輸入連結或標題後，系統即時返回「極高/高/中/低/極低」五段可信度分值與解釋報告。</p>
-                        </div>
-                    </div>
+            <div class="stack-wrapper" data-stack-id="auth">
+                <div class="stack-card"><img src="../images/1.jpg" alt="登入頁面"></div>
+                <div class="stack-card"><img src="../images/2.jpg" alt="註冊頁面"></div>
+                <div class="stack-card"><img src="../images/logging.jpg" alt="登入中狀態"></div>
+                <div class="stack-card"><img src="../images/S__278814803_0.jpg" alt="首頁介面"></div>
+                <div class="stack-dots"></div>
+            </div>
+        </section>
 
-                    <!-- 文章內頁：對應文件用戶互動/專家評論 -->
-                    <div class="demo-item reveal">
-                        <div class="ui-mockup">
-                            <img src="../images/ui-article.jpg" alt="文章內頁" onerror="this.src='https://via.placeholder.com/600x400/daffde/2d3a32?text=Article+View'">
-                            <div class="scan-line"></div>
-                        </div>
-                        <div class="demo-info">
-                            <span class="info-tag">INTERACTIVE</span>
-                            <h3>深度互動分析頁</h3>
-                            <p>除了視覺化標章，更提供專家即時評論功能，強化資訊深度與社會信任感。</p>
-                        </div>
-                    </div>
+        <!-- 模組 02: AI 智慧助手與趨勢報告 -->
+        <section class="demo-section">
+            <div class="demo-text">
+                <span class="section-tag">MODULE 02 / AI ASSISTANT</span>
+                <h2>AI 助手與趨勢報告</h2>
+                <p>透過 AI 對話介面與搜尋，系統能針對特定議題進行分析。<br>除了即時的辨識結果，還提供每周報告功能，協助用戶回顧與追蹤近期資訊環境的變化趨勢。</p>
+            </div>
 
-                    <!-- 懸浮球：對應文件常駐懸浮圖示 -->
-                    <div class="demo-item reveal">
-                        <div class="ui-mockup">
-                            <img src="../images/ui-floating.jpg" alt="常駐懸浮工具" onerror="this.src='https://via.placeholder.com/600x400/f0f4f0/9EB79E?text=Floating+Tool'">
-                            <div class="scan-line"></div>
-                        </div>
-                        <div class="demo-info">
-                            <span class="info-tag">UTILITY</span>
-                            <h3>常駐懸浮工具</h3>
-                            <p>支援 Overlay 權限，在任何應用程式上方都能一鍵喚醒 AI 文字檢測與截圖查證。</p>
-                        </div>
-                    </div>
+            <div class="stack-wrapper" data-stack-id="search">
+                <div class="stack-card"><img src="../images/search.jpg" alt="搜尋主介面"></div>
+                <div class="stack-card"><img src="../images/AI (2).jpg" alt="AI 對話介面"></div>
+                <div class="stack-card"><img src="../images/AI.jpg" alt="分析結果"></div>
+                <div class="stack-card"><img src="../images/AI3.jpg" alt="每周報告"></div>
+                <div class="stack-dots"></div>
+            </div>
+        </section>
 
-                </div>
-            </section>
-        </div>
+        <!-- 模組 03: 文章內頁與可信度標籤 -->
+        <section class="demo-section">
+            <div class="demo-text">
+                <span class="section-tag">MODULE 03 / CONTENT VIEW</span>
+                <h2>文章內頁與可信度標籤</h2>
+                <p>在詳細的文章閱讀介面中，系統會直接標註該內容的可信度等級。<br>透過直觀的視覺標籤提示，幫助用戶在閱讀過程中心中有一把尺，初步判別訊息風險。</p>
+            </div>
+
+            <div class="stack-wrapper" data-stack-id="article">
+                <div class="stack-card"><img src="../images/S__278814801_0.jpg" alt="文章內頁1"></div>
+                <div class="stack-card"><img src="../images/S__278814802_0.jpg" alt="文章內頁2"></div>
+                <div class="stack-dots"></div>
+            </div>
+        </section>
+
+        <!-- 模組 04: 智慧懸浮球功能 -->
+        <section class="demo-section">
+            <div class="demo-text">
+                <span class="section-tag">MODULE 04 / FLOATING BALL</span>
+                <h2>智慧懸浮球功能</h2>
+                <p>此功能支援在手機其他介面中隨時呼叫，無需頻繁切換程式。<br>透過懸浮球，用戶能快速開啟常用工具或進行簡單查核，提升操作效率與便利性。</p>
+            </div>
+
+            <div class="stack-wrapper" data-stack-id="float">
+                <div class="stack-card"><img src="../images/ball.jpg" alt="懸浮球縮放"></div>
+                <div class="stack-dots"></div>
+            </div>
+        </section>
+
+        <!-- 模組 05: 個人化設定介面 -->
+        <section class="demo-section">
+            <div class="demo-text">
+                <span class="section-tag">MODULE 05 / SETTINGS</span>
+                <h2>個人化設定介面</h2>
+                <p>用戶可依據喜好調整帳戶資料與 App 的運作。<br>從關注議題到收藏，多層次的設定選項讓真偽探測站能更貼合每一位使用者的日常習慣。</p>
+            </div>
+
+            <div class="stack-wrapper" data-stack-id="personal">
+                <div class="stack-card"><img src="../images/set.jpg" alt="個人檔案"></div>
+                <div class="stack-card"><img src="../images/set1.jpg" alt="設定介面"></div>
+                <div class="stack-card"><img src="../images/set2.jpg" alt="設定介面"></div>
+                <div class="stack-card"><img src="../images/set3.jpg" alt="設定介面"></div>
+                <div class="stack-dots"></div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>© 2025 ｜A10 真偽探測站</p>
-    </footer>
+    <div id="lightbox-modal">
+        <img id="lightbox-img" src="" alt="放大預覽">
+    </div>
 
     <script src="../js/effects.js"></script>
+    <script src="../js/demo.js"></script>
+
+    <footer>
+        <p class="copyright">© 2025 真偽探測站｜ A10</p>
+    </footer>
+
 </body>
 </html>

@@ -1,170 +1,218 @@
-/* VERI-STATION - 實際展示頁面專業科技感優化 */
-
-/* ===== 全域背景與標記 ===== */
-#particle-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f0f4f1 100%);
+/* 容器基礎設定 */
+.demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
 }
 
-.tech-label {
+.demo-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 120px;
+    gap: 60px;
+}
+
+.demo-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* 文字區域樣式 */
+.demo-text {
+    flex: 0 0 400px;
+}
+
+.section-tag {
     font-family: 'Orbitron', sans-serif;
-    color: var(--green-main);
-    letter-spacing: 5px;
-    font-size: 0.9rem;
-    font-weight: 700;
+    color: #9eb79e;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    display: block;
     margin-bottom: 10px;
-    opacity: 0.8;
+    text-transform: uppercase;
 }
 
-.subtitle {
-    color: var(--text-secondary);
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto 60px;
+.demo-text h2 {
+    font-size: 2.4rem;
+    color: #ffffff;
+    margin-bottom: 24px;
+    font-weight: 700;
 }
 
-/* ===== 展示網格系統 ===== */
-.demo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    perspective: 2000px; /* 為網格整體提供透視感 */
+.demo-text p {
+    color: #cbd5e1;
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
-/* ===== 展示卡片主體 (3D 互動) ===== */
-.demo-item {
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 40px;
-    padding: 25px;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(15px);
+/* 堆疊輪播核心佈局 */
+.stack-wrapper {
+    flex: 1;
+    position: relative;
+    height: 650px; 
+    perspective: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stack-card {
+    position: absolute;
+    width: 280px;      
+    height: 560px;     
+    border-radius: 30px; 
+    cursor: pointer;
     transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    transform-style: preserve-3d;
-    position: relative;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-}
-
-.demo-item:hover {
-    transform: rotateY(-8deg) rotateX(5deg) translateY(-15px);
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 30px 60px rgba(158, 183, 158, 0.2);
-    border-color: var(--green-main);
-}
-
-/* UI Mockup 容器 */
-.ui-mockup {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    background: #1a1a1a;
-    border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 25px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-    transform: translateZ(30px); /* 讓圖片在 3D 空間中浮起 */
+    border: 6px solid #1a1a1a; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    background: #000;
+    top: 20px;
 }
 
-.ui-mockup img {
+.stack-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    transition: 0.5s;
+    object-fit: cover;        
+    object-position: top center; 
+    display: block;
+    transition: transform 0.5s ease;
 }
 
-.demo-item:hover .ui-mockup img {
+.stack-card:hover img {
+    transform: scale(1.05); 
+}
+
+/* 堆疊狀態 (由 JS 切換) */
+.stack-card.active {
+    z-index: 30;
     opacity: 1;
-    transform: scale(1.05);
+    cursor: zoom-in;
+    transform: translateZ(0);
 }
 
-/* 動態掃描線 */
-.scan-line {
+.stack-card.next {
+    z-index: 20;
+    opacity: 0.8;
+    transform: translateZ(-100px) translateX(40px);
+}
+
+.stack-card.back {
+    z-index: 10;
+    opacity: 0.5;
+    transform: translateZ(-200px) translateX(80px);
+}
+
+.stack-card.hidden {
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateZ(-300px);
+}
+
+/* 分頁點點 */
+.stack-dots {
     position: absolute;
+    bottom: 0;
+    display: flex;
+    gap: 12px;
+    z-index: 100;
+    padding: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(158, 183, 158, 0.2);
+    border: 1px solid rgba(158, 183, 158, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 30px; 
+    border-radius: 10px;
+    background: #9eb79e;
+}
+
+/* 燈箱全螢幕放大 */
+#lightbox-modal {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(to bottom, transparent, var(--green-main), transparent);
-    box-shadow: 0 0 15px var(--green-glow);
-    z-index: 5;
-    animation: scanAnimation 3s infinite ease-in-out;
-    pointer-events: none;
+    height: 100%;
+    background: rgba(5, 10, 16, 0.98);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    cursor: zoom-out;
+    backdrop-filter: blur(15px);
+    padding: 20px;
 }
 
-/* ===== 資訊內容排版 ===== */
-.demo-info {
-    text-align: left;
-    padding: 10px 15px;
-    transform: translateZ(50px); /* 讓文字浮得比圖片更高 */
+#lightbox-modal.show {
+    display: flex;
 }
 
-.info-tag {
-    display: inline-block;
-    font-family: 'Orbitron', sans-serif;
-    background: var(--green-light);
-    color: var(--green-main);
-    font-size: 0.7rem;
-    padding: 4px 12px;
-    border-radius: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+#lightbox-modal img {
+    max-width: 95%;
+    max-height: 95vh;
+    object-fit: contain; 
+    border-radius: 12px;
 }
 
-.demo-info h3 {
-    font-size: 1.6rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.demo-info p {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-/* ===== 科技感裝飾細節 ===== */
-.demo-item::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 10px;
-    height: 10px;
-    background: var(--green-main);
-    border-radius: 50%;
-    box-shadow: 0 0 10px var(--green-glow);
-    animation: pulseGlow 2s infinite;
-}
-
-/* ===== 動畫定義 ===== */
-@keyframes scanAnimation {
-    0% { top: -5%; }
-    50% { top: 105%; }
-    100% { top: -5%; }
-}
-
-@keyframes pulseGlow {
-    0%, 100% { opacity: 0.4; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2); }
-}
-
-/* ===== 響應式優化 ===== */
-@media (max-width: 992px) {
-    .demo-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+/* 響應式優化：修正小螢幕疊在一起的問題 */
+@media (max-width: 1024px) {
+    .demo-section {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 30px;
     }
-}
-
-@media (max-width: 600px) {
-    .demo-item {
-        padding: 20px;
+    
+    .demo-text {
+        flex: auto;
+        max-width: 100%;
+        padding: 0 20px;
     }
-    .demo-info h3 {
-        font-size: 1.4rem;
+
+    /* 關鍵修正：在小螢幕下取消 Absolute 堆疊，改為橫向橫向捲動或垂直排列 */
+    .stack-wrapper {
+        width: 100%;
+        height: auto; /* 高度隨內容撐開 */
+        display: flex;
+        flex-direction: row; /* 改為橫向 */
+        overflow-x: auto;    /* 支援左右滑動 */
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px 0 40px 0;
+        gap: 20px;
+        perspective: none;    /* 取消 3D 效果避免裁切 */
+        scrollbar-width: none; /* 隱藏捲軸 (Firefox) */
+    }
+
+    .stack-wrapper::-webkit-scrollbar {
+        display: none; /* 隱藏捲軸 (Chrome/Safari) */
+    }
+
+    .stack-card {
+        position: relative; /* 取消 Absolute */
+        flex: 0 0 260px;    /* 固定卡片寬度 */
+        height: 520px;
+        top: 0;
+        left: 0;
+        transform: none !important; /* 強制取消 JS 的 Transform 效果 */
+        opacity: 1 !important;     /* 全部顯示 */
+        pointer-events: auto !important;
+        border-width: 4px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 在小螢幕隱藏點點，因為改用手勢滑動 */
+    .stack-dots {
+        display: none;
     }
 }
