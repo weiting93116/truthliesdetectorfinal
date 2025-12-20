@@ -6,9 +6,30 @@
     padding: 0 40px;
 }
 
+/* 頁面頂部標題區域 */
+.page-hero {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(158, 183, 158, 0.4);
+}
+
+.page-hero p {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+}
+
+/* 成員卡片網格 */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /* 使用 minmax 確保在平板與手機上的適應性 */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     gap: 40px;
     margin-top: 50px;
 }
@@ -20,13 +41,18 @@
     gap: 20px;
     position: relative;
     transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-    border: 1px solid rgba(158, 183, 158, 0.1);
+    /* 繼承 base.css 的玻璃質感 */
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
 }
 
 .member-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
     border-color: var(--primary-green);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(158, 183, 158, 0.1);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(158, 183, 158, 0.15);
+    background: rgba(158, 183, 158, 0.05);
 }
 
 /* 頂部區域：頭像與基本資料 */
@@ -35,7 +61,7 @@
     align-items: center;
     gap: 25px;
     border-bottom: 1px solid rgba(158, 183, 158, 0.2);
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 .avatar-img {
@@ -45,7 +71,12 @@
     border-radius: 15px;
     border: 2px solid var(--primary-green);
     box-shadow: 0 0 15px rgba(158, 183, 158, 0.3);
-    background-color: #000;
+    background-color: #050a10;
+    transition: transform 0.4s ease;
+}
+
+.member-card:hover .avatar-img {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .info-titles h3 {
@@ -56,69 +87,106 @@
 
 .student-id {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--primary-green);
     letter-spacing: 2px;
+    opacity: 0.8;
 }
 
 /* 職責標籤 */
 .role-tag {
     display: inline-block;
-    padding: 5px 15px;
+    padding: 6px 16px;
     background: rgba(158, 183, 158, 0.1);
     border-left: 3px solid var(--primary-green);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--primary-green);
+    border-radius: 0 4px 4px 0;
 }
 
 /* 內容區塊 */
 .content-block {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
 .content-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--primary-green);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
+    letter-spacing: 2px;
+    opacity: 0.7;
 }
 
 .intro-text {
-    font-size: 1.1rem;
-    color: #eee;
+    font-size: 1.05rem;
+    color: #e0e0e0;
     line-height: 1.7;
+    /* 限制字數較多時的高度 */
+    max-height: 100px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* 滾動條美化 */
+.intro-text::-webkit-scrollbar {
+    width: 4px;
+}
+.intro-text::-webkit-scrollbar-thumb {
+    background: var(--glass-border);
+    border-radius: 10px;
 }
 
 .experience-box {
-    margin-top: 10px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.03);
+    margin-top: 5px;
+    padding: 22px;
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     border: 1px dashed rgba(158, 183, 158, 0.2);
+    transition: background 0.3s ease;
+}
+
+.member-card:hover .experience-box {
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .experience-text {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: #bbb;
     line-height: 1.8;
     font-style: italic;
+    position: relative;
 }
 
 /* 響應式優化 */
+@media (max-width: 992px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
+
 @media (max-width: 768px) {
     .team-grid {
         grid-template-columns: 1fr;
     }
     .container {
-        padding: 0 20px;
+        padding: 0 25px;
+        margin-top: 100px;
+    }
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+    .member-card {
+        padding: 30px;
     }
     .avatar-img {
-        width: 65px;
-        height: 65px;
+        width: 70px;
+        height: 70px;
+    }
+    .info-titles h3 {
+        font-size: 1.5rem;
     }
 }
