@@ -35,12 +35,12 @@ body {
     pointer-events: none;
 }
 
-/* 導覽列 */
+/* --- 導覽列佈局修正 --- */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 15px 50px;
+    height: 80px; 
     z-index: 1000;
     background: rgba(5, 10, 16, 0.9);
     backdrop-filter: blur(15px);
@@ -48,12 +48,15 @@ header {
     border-bottom: 1px solid var(--glass-border);
 }
 
-nav {
+/* 確保 nav 內部的 flex 不會影響到 header 以外的元素 */
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1400px;
+    height: 100%; /* 撐滿 header 的 80px */
     margin: 0 auto;
+    padding: 0 50px;
 }
 
 .brand-logo {
@@ -70,6 +73,7 @@ nav {
 .nav-links {
     display: flex;
     gap: 35px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -101,34 +105,14 @@ nav {
     width: 100%;
 }
 
-/* 共用內容容器 */
+/* --- 內容大標與容器樣式 (恢復並優化) --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 120px 20px 80px;
+    padding: 120px 20px 80px; /* 確保內容不會被 fixed header 擋住 */
 }
 
-/* 修正：進場動畫 */
-.section {
-    margin-bottom: 80px;
-    /* 預設維持顯示，若 JS 載入失敗至少看得到內容 */
-    opacity: 1; 
-    transform: translateY(0);
-    transition: 0.8s ease-out;
-}
-
-/* 如果您希望保留進場動畫，請確保 effects.js 有運作 */
-/* 若要完全避開內容消失的問題，可以暫時註解掉底下的 opacity: 0 */
-.js-enabled .section {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.js-enabled .section.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+/* 這是您原本的 section-header 邏輯 */
 .section-header {
     display: flex;
     align-items: flex-end;
@@ -142,6 +126,13 @@ nav {
     line-height: 0.8;
     color: rgba(158, 183, 158, 0.1);
     -webkit-text-stroke: 1px var(--primary-green);
+    flex-shrink: 0; /* 防止數字被擠壓 */
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--primary-green);
+    font-weight: 600;
 }
 
 .h-line {
@@ -151,6 +142,7 @@ nav {
     margin-bottom: 10px;
 }
 
+/* 玻璃容器 */
 .glass-container {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
@@ -158,7 +150,24 @@ nav {
     -webkit-backdrop-filter: blur(10px);
     border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* 進場動畫控制 */
+.section {
+    margin-bottom: 80px;
+    opacity: 1; 
+    transform: translateY(0);
+}
+
+.js-enabled .section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s ease-out;
+}
+
+.js-enabled .section.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 footer {
@@ -171,7 +180,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-    header { padding: 15px 20px; }
+    header nav { padding: 0 20px; }
     .nav-links { gap: 15px; }
     .nav-links a { font-size: 0.85rem; }
     .container { padding-top: 100px; }
