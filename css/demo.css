@@ -165,7 +165,7 @@
     border-radius: 12px;
 }
 
-/* 響應式優化：修正小螢幕疊在一起的問題 */
+
 @media (max-width: 1024px) {
     .demo-section {
         flex-direction: column !important;
@@ -179,19 +179,19 @@
         padding: 0 20px;
     }
 
-    /* 關鍵修正：在小螢幕下取消 Absolute 堆疊，改為橫向橫向捲動或垂直排列 */
+   
     .stack-wrapper {
         width: 100%;
-        height: auto; /* 高度隨內容撐開 */
+        height: auto; 
         display: flex;
-        flex-direction: row; /* 改為橫向 */
+        flex-direction: row; 
         overflow-x: auto;    /* 支援左右滑動 */
         justify-content: flex-start;
         align-items: flex-start;
         padding: 20px 0 40px 0;
         gap: 20px;
-        perspective: none;    /* 取消 3D 效果避免裁切 */
-        scrollbar-width: none; /* 隱藏捲軸 (Firefox) */
+        perspective: none;    
+        scrollbar-width: none; 
     }
 
     .stack-wrapper::-webkit-scrollbar {
